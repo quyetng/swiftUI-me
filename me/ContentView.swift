@@ -10,19 +10,26 @@ import SwiftUI
 
 struct ContentView: View {
 var body: some View {
+    
+    
     ZStack {
-        Color(.systemTeal)
-            .edgesIgnoringSafeArea(.all)
+        Color(UIColor(red: 0.20, green: 0.60, blue: 0.86, alpha: 1.00)).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+            
         VStack {
-                   
-                   Text("I AM Q")
-                       .font(.system(.largeTitle))
-                       .fontWeight(.bold)
-                       .foregroundColor(.white)
             Image("Q")
-            .resizable()
-                .aspectRatio(contentMode: .fit).frame(width: 200, height: 200, alignment: .center)
+                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                .overlay(Circle()
+                    .strokeBorder(Color.white, lineWidth: 5)).aspectRatio(contentMode: .fit).frame(width: 150, height: 150, alignment: .center)
+            Text("I AM Q")
+                .font(.custom("Pacifico-Regular", size: 40)).foregroundColor(.white).bold()
+            Text("iOS developer").foregroundColor(.white).font(.system(size: 25))
+            Divider()
+            InfoView(imageName: "phone.fill", description: "(720)838-0736")
+           
+            InfoView(imageName: "envelope.fill", description: "quyetng87@gmail.com")
+            
                }
+        
     }
    
     
@@ -34,3 +41,5 @@ static var previews: some View {
     ContentView()
 }
 }
+
+
